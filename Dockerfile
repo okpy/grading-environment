@@ -11,12 +11,13 @@ RUN \
   apt-get install -y python python-dev && \
   add-apt-repository -y ppa:fkrull/deadsnakes && \
   apt-get install -y python3.5 python3.5-dev && \
-  apt-get install -y  sqlite3 libsqlite3-dev && \
+  apt-get install -y sqlite3 libsqlite3-dev && \
+  apt-get install -y python3-scipy python3-pip && \
   rm -rf /var/lib/apt/lists/*
 
 RUN \
-  pip install okpy requests && \
-  pip install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image   && \
+  pip3 install okpy requests && \
+  pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image
 
 # Set environment variables.
 ENV HOME /root
