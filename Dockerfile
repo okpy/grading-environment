@@ -8,7 +8,7 @@ RUN \
   apt-get install -y build-essential ca-certificates && \
   apt-get install -y software-properties-common && \
   apt-get install -y curl git htop man unzip vim wget && \
-  apt-get install -y python python-dev && \
+  apt-get install -y python python-dev python-pip && \
   add-apt-repository -y ppa:fkrull/deadsnakes && \
   apt-get install -y python3.5 python3.5-dev && \
   apt-get install -y sqlite3 libsqlite3-dev && \
@@ -20,6 +20,8 @@ RUN \
 RUN \
   pip install requests six && \
   pip install pytz arrow
+
+RUN echo "alias python=python3" >> /root/.bash_aliases
 
 RUN \
   pip3 install okpy requests six virtualenv && \
