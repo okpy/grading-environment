@@ -18,8 +18,13 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 RUN \
+  pip install requests six && \
+  pip install pytz arrow
+
+RUN \
   pip3 install okpy requests six virtualenv && \
-  pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image
+  pip3 install networkx html5lib decorator pytz arrow && \
+  pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image 
 
 # Set environment variables.
 ENV HOME /root
