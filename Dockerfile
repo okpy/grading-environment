@@ -21,7 +21,10 @@ RUN \
   pip install requests six && \
   pip install pytz arrow pdf
 
+# Default to Python3 
 RUN echo "alias python=python3" >> /root/.bash_aliases
+RUN mv /usr/bin/python /usr/bin/python2
+RUN ln -s  /usr/bin/python3 /usr/bin/python
 
 RUN \
   pip3 install okpy requests six virtualenv && \
