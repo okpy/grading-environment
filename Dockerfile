@@ -19,14 +19,15 @@ RUN \
 
 RUN \
   pip install requests six && \
-  pip install pytz arrow
+  pip install pytz arrow pdf
 
 RUN echo "alias python=python3" >> /root/.bash_aliases
 
 RUN \
   pip3 install okpy requests six virtualenv && \
   pip3 install networkx html5lib decorator pytz arrow && \
-  pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image 
+  pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image && \
+  pip3 install fdpf
 
 # Set environment variables.
 ENV HOME /root
