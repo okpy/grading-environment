@@ -16,15 +16,9 @@ RUN \
   apt-get install -y freetype* pkg-config && \
   apt-get autoremove -y
 
-RUN apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
-    texlive-latex-base \
-    texlive-xetex latex-xcolor \
-    texlive-math-extra \
-    texlive-latex-extra \
-    texlive-fonts-extra \
-    texlive-bibtex-extra \
-    fontconfig \
-    lmodern
+# Pandoc & Texlive for Latex Rendering
+RUN apt-get install -y pandoc && \
+    apt-get install -y texlive
   
 RUN  rm -rf /var/lib/apt/lists/*
 
