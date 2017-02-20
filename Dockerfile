@@ -25,7 +25,7 @@ RUN apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
     texlive-bibtex-extra \
     fontconfig \
     lmodern
-  
+
 RUN  rm -rf /var/lib/apt/lists/*
 
 RUN \
