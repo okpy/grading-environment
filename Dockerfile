@@ -17,8 +17,16 @@ RUN \
   apt-get autoremove -y
 
 # Pandoc & Texlive for Latex Rendering
-RUN apt-get install -y pandoc && \
-    apt-get install -y xelatex
+RUN apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
+     texlive-latex-base \
+     texlive-xetex latex-xcolor \
+     texlive-math-extra \
+     texlive-latex-extra \
+     texlive-fonts-extra \
+     texlive-bibtex-extra \
+     fontconfig \
+     pandoc
+     lmodern
   
 RUN  rm -rf /var/lib/apt/lists/*
 
