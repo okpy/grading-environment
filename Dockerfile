@@ -14,8 +14,19 @@ RUN \
   apt-get install -y sqlite3 libsqlite3-dev && \
   apt-get install -y python3-scipy python3-pip && \
   apt-get install -y freetype* pkg-config && \
-  apt-get autoremove -y && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get autoremove -y
+
+RUN apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
+    texlive-latex-base \
+    texlive-xetex latex-xcolor \
+    texlive-math-extra \
+    texlive-latex-extra \
+    texlive-fonts-extra \
+    texlive-bibtex-extra \
+    fontconfig \
+    lmodern
+  
+RUN  rm -rf /var/lib/apt/lists/*
 
 RUN \
   pip install requests six && \
