@@ -18,7 +18,7 @@ RUN \
 
 # Pandoc & Texlive for Latex Rendering
 RUN apt-get install -y pandoc && \
-    apt-get install -y texlive
+    apt-get install -y xelatex
   
 RUN  rm -rf /var/lib/apt/lists/*
 
