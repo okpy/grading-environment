@@ -43,7 +43,7 @@ RUN \
   pip3 install okpy requests six virtualenv && \
   pip3 install networkx html5lib decorator pytz arrow && \
   pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image && \
-  pip3 install fpdf datascience
+  pip3 install fpdf datascience ipywidgets
 
 # Set environment variables.
 ENV HOME /root
