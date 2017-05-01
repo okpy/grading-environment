@@ -46,8 +46,9 @@ RUN \
   pip3 install fpdf datascience ipywidgets
 
 # Set environment variables.
-ENV HOME /root # TODO: Run as non root user
+ENV HOME /root 
 
+# TODO: Run as non root user
 # Define working directory.
 WORKDIR /root
 
