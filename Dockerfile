@@ -40,7 +40,8 @@ RUN mv /usr/bin/python /usr/bin/python2
 RUN ln -s  /usr/bin/python3 /usr/bin/python
 
 RUN \
-  pip3 install okpy requests six virtualenv && \
+  pip3 install "okpy>=v1.12.5" && \
+  pip3 install requests six virtualenv && \
   pip3 install networkx html5lib decorator pytz arrow && \
   pip3 install jupyter pandas numpy matplotlib scipy scikit-learn seaborn scikit-image && \
   pip3 install fpdf datascience ipywidgets
