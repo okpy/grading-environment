@@ -38,8 +38,9 @@ RUN \
 
 # Default to Python3 
 RUN echo "alias python=/usr/bin/python3.6" >> /root/.bash_aliases
+RUN echo "alias python3=/usr/bin/python3.6" >> /root/.bash_aliases
 RUN mv /usr/bin/python /usr/bin/python2
-RUN ln -s  /usr/bin/python3 /usr/bin/python
+RUN ln -s  /usr/bin/python3.6 /usr/bin/python
 
 RUN \
   pip3 install okpy && \
