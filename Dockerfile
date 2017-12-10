@@ -31,10 +31,6 @@ RUN apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
   
 RUN  rm -rf /var/lib/apt/lists/*
 
-RUN \
-  pip install requests six && \
-  pip install pytz arrow pdf
-
 # Default to Python3 
 RUN echo "alias python=/usr/bin/python3.6" >> /root/.bash_aliases
 RUN echo "alias python3=/usr/bin/python3.6" >> /root/.bash_aliases
@@ -42,6 +38,8 @@ RUN mv /usr/bin/python /usr/bin/python2
 RUN ln -s  /usr/bin/python3.6 /usr/bin/python
 
 RUN \
+  pip3 install requests six && \
+  pip3 install pytz arrow pdf && \
   pip3 install okpy && \
   pip3 install --upgrade okpy && \
   pip3 install requests six virtualenv && \
