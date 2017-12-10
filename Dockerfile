@@ -37,7 +37,7 @@ RUN \
   pip install pytz arrow pdf
 
 # Default to Python3 
-RUN echo "alias python=python3" >> /root/.bash_aliases
+RUN echo "alias python=/usr/bin/python3.6" >> /root/.bash_aliases
 RUN mv /usr/bin/python /usr/bin/python2
 RUN ln -s  /usr/bin/python3 /usr/bin/python
 
