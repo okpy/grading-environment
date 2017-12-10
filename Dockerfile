@@ -10,7 +10,7 @@ RUN \
   apt-get install -y curl git htop man unzip vim wget && \
   apt-get install -y python python-dev python-pip && \
   add-apt-repository -y ppa:fkrull/deadsnakes && \
-  apt-get install -y python3.5 python3.5-dev && \
+  apt-get install -y python3.6 python3.6-dev && \
   apt-get install -y sqlite3 libsqlite3-dev && \
   apt-get install -y python3-scipy python3-pip && \
   apt-get install -y freetype* pkg-config && \
