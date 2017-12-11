@@ -9,13 +9,11 @@ RUN \
   apt-get install -y software-properties-common && \
   apt-get install -y curl git htop man unzip vim wget && \
   apt-get install -y python python-dev python-pip && \
-  add-apt-repository -y ppa:jonathonf/python-3.6 && \
-  apt-get update -y && \
-  apt-get install -y python3.6 && \
-  apt-get install -y python3.6-dev && \
-  apt-get install -y python3.6-venv && \
-  wget https://bootstrap.pypa.io/get-pip.py && \
-  python3.6 get-pip.py && \
+  add-apt-repository ppa:jonathonf/python-3.6 && \
+  apt-get update && \
+  apt-get install -y build-essential python3.6 python3.6-dev python3-pip python3.6-venv && \
+  python3.6 -m pip install pip --upgrade && \
+  python3.6 -m pip install wheel && \
   apt-get install -y sqlite3 libsqlite3-dev && \
   apt-get install -y python3-scipy python3-pip && \
   apt-get install -y freetype* pkg-config && \
