@@ -16,8 +16,8 @@ RUN \
   apt-get install -y python3.6-venv && \
   wget https://bootstrap.pypa.io/get-pip.py && \
   python3.6 get-pip.py && \
-  sudo ln -s /usr/bin/python3.6 /usr/local/bin/python3 && \
-  sudo ln -s /usr/local/bin/pip /usr/local/bin/pip3 && \
+  ln -s /usr/bin/python3.6 /usr/local/bin/python3 && \
+  ln -s /usr/local/bin/pip /usr/local/bin/pip3 && \
   apt-get install -y sqlite3 libsqlite3-dev && \
   apt-get install -y python3-scipy python3-pip && \
   apt-get install -y freetype* pkg-config && \
