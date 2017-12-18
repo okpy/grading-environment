@@ -21,6 +21,7 @@ RUN ln -s $(which python3.6) /usr/bin/python
 RUN curl https://bootstrap.pypa.io/get-pip.py | python3.6
 
 # Install Packages
+RUN apt-get install -y sqlite3 libsqlite3-dev
 RUN apt-get install -y python3-scipy
 RUN apt-get install -y freetype* pkg-config
 RUN pip install \
