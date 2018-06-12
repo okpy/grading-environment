@@ -25,7 +25,7 @@ RUN apt-get install -y sqlite3 libsqlite3-dev
 RUN apt-get install -y python3-scipy
 RUN apt-get install -y freetype* pkg-config
 RUN pip install \
-     requests six pytz arrow pdf virtualenv \
+     requests six pytz arrow PyPDF2 virtualenv \
      networkx html5lib decorator \
      jupyter pandas numpy matplotlib scipy \
      scikit-learn seaborn scikit-image \
