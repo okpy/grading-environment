@@ -1,41 +1,35 @@
 # Pull base image.
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 # Install Base
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get install -y build-essential
-RUN apt-get install -y ca-certificates
-RUN apt-get install -y curl git htop man unzip vim wget
-
-# Install Python 3.6
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:jonathonf/python-3.6
-RUN apt-get update
-RUN apt-get install -y python3.6 python3.6-dev
-
-# Make Python 3.6 aliases (see: https://stackoverflow.com/q/36388465)
-RUN rm -rf /usr/bin/python3
-RUN ln -s $(which python3.6) /usr/bin/python3
-RUN ln -s $(which python3.6) /usr/bin/python
-RUN curl https://bootstrap.pypa.io/get-pip.py | python3.6
+RUN apt-get update \
+ && apt-get -y upgrade \
+ && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        curl git htop man unzip vim wget \
+        python3 python3-dev python3-pip python3-setuptools \
+ && printf '#!/usr/bin/env bash\npython3 -m pip "$@"' > /usr/bin/pip3 \
+ && chmod +x /usr/bin/pip3 \
+ && ln -s /usr/bin/pip3 /usr/bin/pip \
+ && ln -s /usr/bin/python3 /usr/bin/python \
+ && rm -rf /var/lib/apt/lists/*
 
 # Install Packages
-RUN apt-get install -y sqlite3 libsqlite3-dev
-RUN apt-get install -y python3-scipy
-RUN apt-get install -y freetype* pkg-config
-RUN pip install \
-     requests six pytz arrow PyPDF2 virtualenv \
-     networkx html5lib decorator \
-     jupyter pandas numpy matplotlib scipy \
-     scikit-learn seaborn scikit-image \
-     fpdf datascience ipywidgets
-RUN pip install okpy
-RUN pip install --upgrade okpy
-
-# Cleanup
-RUN apt-get autoremove -y
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+        sqlite3 libsqlite3-dev \
+        python3-scipy \
+        freetype* pkg-config \
+ && pip install --no-cache-dir \
+        requests six pytz arrow PyPDF2 virtualenv \
+        networkx html5lib decorator \
+        jupyter pandas numpy matplotlib scipy \
+        scikit-learn seaborn scikit-image \
+        fpdf datascience ipywidgets \
+ && pip install --no-cache-dir okpy \
+ && pip install --no-cache-dir --upgrade okpy \
+ && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables.
 ENV HOME /root
