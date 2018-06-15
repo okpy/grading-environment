@@ -1,5 +1,5 @@
 # Pull base image.
-FROM ubuntu:latest
+FROM ubuntu:xenial
 
 # Install Base
 RUN apt-get update
