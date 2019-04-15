@@ -24,7 +24,7 @@ RUN apt-get update \
  && pip install --no-cache-dir \
         requests six pytz arrow PyPDF2 virtualenv \
         networkx html5lib decorator \
-        jupyter pandas numpy matplotlib scipy \
+        jupyter pandas numpy==1.16.2 matplotlib scipy \
         scikit-learn seaborn scikit-image \
         fpdf datascience ipywidgets \
  && pip install --no-cache-dir okpy \
